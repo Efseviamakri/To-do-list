@@ -1,0 +1,158 @@
+*{
+    margin : 0;
+    padding : 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+
+    
+
+}
+
+.container{
+    width : 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+
+.To-Do-page h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.book{
+    width: 60px;
+    height: auto;
+    vertical-align: center;
+}
+
+.To-Do-page{
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    
+}
+
+.To-Do-page h2{
+    color:#002765;
+    display:flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+
+}
+
+.To-Do-page h2 img{
+    width: 40px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f0f9;
+    border-radius: 30px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    
+    
+
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 20px;
+}
+
+input::placeholder{
+    color: #0c0d4f;
+    font-size: 16px;
+
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 15px 40px;
+    background:#6f6ff0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+}
+
+ul li{
+    list-style: none;
+    font-size: 14px;
+    background:#f0f0f9;
+    padding: 12px 8px 12px 45px;
+    user-select: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 7px;
+    left: 8px;
+
+}
+
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+
+
+}
+
+ul li.checked::before{
+    background-image: url(images/check.png); /*Αλλάζει την εικόνα του κύκλου σε ενα τσεκαρισμένο κύκλο όταν η εργασία εχει επισημανθεί ως ολοκληρωμένη*/
+
+}
+
+ul li span{
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: #555;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+ul li span:hover{
+    background: #a3a6aa;
+    transform: translateY(-50%) scale(1.05);
+    
+
+}
