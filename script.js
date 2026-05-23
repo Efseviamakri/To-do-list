@@ -18,6 +18,7 @@ function addTask(){
     }
 
     inputBox.value = "";//καθαρίζει το input box μετά την προσθήκη κειμένου//
+    saveData(); //καλεί την συνάρτηση για να αποθηκεύσει τα δεδομένα στο local storage μετά την προσθήκη μιας νέας εργασίας//
 }
 
 // Add task on Enter keypress inside the input box
@@ -29,13 +30,26 @@ inputBox.addEventListener("keydown", function(event) {
 });
 
 // Listen for clicks on tasks to toggle checked status
-listContainer.addEventListener("click", function(e) {
+listContainer.addEventListener("click", function(e) { //Ακούει για κλικ σε οποιοδήποτε στοιχείο μέσα στο listcontainer
     // Check if the click was on the delete button (span)
-    if (e.target.tagName === "SPAN") {
+    if (e.target.tagName === "SPAN") { //Ελέγχει αν το στοιχείο που κλικάρεται είναι ένα σπαν(κουμπί διαγραφής)
         e.target.parentElement.remove(); // Remove the task
     }
     // Check if the click was on the li element itself (the task)
     else if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked"); // Toggle the checked class
+        saveData(); //save the updated list to local storage after toggling the checked status of a task
     }
 }, false);
+
+function saveData() { //Δημιουργεί μια συνάρτηση
+    localStorage.setItem("data", listContainer.innerHTML); //Αποθηκεύει το περιεχόμενο του list conteiner στο local storage με το κλειδί "data"
+
+}
+
+function showTask(){
+    listContainer.innerHTML = localStorage.getItem("data"); //Ανακτά τα δεδομένα απο το local storage και τα εμφανίζει στο list container
+
+}
+
+showTask(); //Καλεί την συνάρτηση για να εμφανίσει τις εργασίες που έχουναποθηκευθεί στο local storage όταν φορτώνει η σελίδα//
